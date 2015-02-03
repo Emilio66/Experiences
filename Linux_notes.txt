@@ -1,0 +1,104 @@
+	linux 常用命令总结：
+	
+touch a.txt 创建一个文本文档
+pwd 显示当前目录//present working directory
+man 查找命令
+mv dir1 dir2 //移动目录或文件 或改名字
+cp //cp a b copy file a to b  // cp -rf /usr/share/phpMyAdmin/ .  强制拷贝文件夹到当前目录
+cat //打印某个文件内容 more 与之类似只是分屏显示
+ cat a.txt >b.txt //拷贝文件内容
+chmod u+rwx filename//change permission of accessing this file.
+whereis ,find
+whereis [-bmsu]  文件或目录名
+
+-b:二进制文件
+
+-m:只找在说明文件manual路径下的问津
+
+-s:只找source源文件
+
+-u:查找不在上述三个选项中的其他特殊文件
+查找文件名为passwd的这个文件
+whereis 多用来查找命令的路径
+find 多用来查找文件的路径
+find  /  -name passwd //查找根目录下名称为passwd的文件
+
+查找文件类型为socket的文件
+
+find / -type s
+
+grep abc * //查找当前目录下含有abc串的所有文件。
+
+ctr + c //quit current process
+ctr + z //suspend current process, use fg to waken it
+
+关机 (系统的关机、重启以及登出 )
+shutdown -h now 关闭系统(1)
+init 0 关闭系统(2)
+telinit 0 关闭系统(3)
+shutdown -h hours:minutes & 按预定时间关闭系统
+shutdown -c 取消按预定时间关闭系统
+shutdown -r now 重启(1)
+reboot 重启(2)
+logout 注销 
+locat abc.txt
+	//锁定所给文件的位置，它是从数据库中查询该文件的位置，但是
+	//该数据库7天才更新一次,所以新近的文件需要用root权限updatedb ///
+
+-----------------------------------------------------------
+	vi个人总结
+
+编辑： x 删除当前光标所在的字符 dd剪切当前行 3dd剪切3行
+      p 粘贴， 3p粘贴3次，yy复制 v在可视化视图下选择要复制的东西
+      a 在光标后插入， o当前行后插入新行，O当前行前插入新行，cw 替换当前单词
+      
+撤销/重做： u undo , ctr+r redo， ‘.’重复上一次命令
+
+冒号命令： w 存盘，q退出，e 打开新文件，n next 打开多个文件时向下切换
+			q! 不保存并退出
+
+光标移动： G 到文尾，gg 到文头
+	0 到行头，$到行尾
+	w 单词头，e单词尾
+	
+字符匹配： /abc 搜索abc，多个结果 按n next  
+	% 括号匹配
+	*,# 匹配当前光标的单词，分别代表前一个和后一个
+
+替换： :%s/原内容/新内容/g 全局替换 
+	
+切换大小写： 可视化选中 gU变大写 ， gu 变小写
+
+缩进：	可视化操作， <,>分别代表左右缩进
+
+帮助：	help usr_02.txt // 所有vim 操作 的帮助文档   
+
+================================================================= 
+
+挂载：
+sudo mount -o codepage=936,iocharset=utf-8 /dev/sda10 /mnt
+sudo umount /mnt 撤销挂载
+
+查看磁盘空间
+df -h
+
+启动pdnsd,默认开机启动
+　　sudo /etc/init.d/pdnsd start
+
+简单测试网速
+　　dig yahoo.com | grep time
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+
+zhao-zy@neusoft.com// email

@@ -1,0 +1,77 @@
+一、安装后配置
+$ git config --global user.name "Your Name"
+$ git config --global user.email "email@example.com"
+
+
+二、初始化
+
+初始化一个Git仓库，使用git init命令。
+添加文件到Git仓库，分两步：
+第一步，git add <file>，注意，可反复多次使用，添加多个文件。
+	从workspace -> stage (temporary area )
+第二步，git commit，添加文件至库完成 -m "提交注释"。
+	stage -> local repository
+
+
+
+三、 基本使用
+
+查看工作区的状态:	git status
+
+查看文件改动处：	git diff <file>
+
+查看提交历史：  	git log --pretty=oneline
+
+查看分支结构图：	git log --graph //--pretty=oneline --abbrev-commit
+
+查看命令历史：		git reflog
+
+版本回退：		git reset HEAD^ 上一个版本就是HEAD^，上上一个版本就是HEAD^^, 上100个版本 HEAD~100
+
+丢弃修改：		git checkout -- filename //撤销提交到stage的修改
+
+从版本库里删除某文件：	git rm filename //then remember to commit
+
+不追踪某文件：		git update-index --assume-unchanged your_file_path
+继续追踪该文件：	git update-index --no-assume-unchanged your_file_path
+
+添加远端版本库：	git remote add origin git@server:/dir1/dir2/project.git
+
+推送到远端版本库：	git push -u origin master //-u 第一次关联本地和远程的master分支，之后可以去掉
+
+克隆远程库：		git clone git@server:/dir1/dir2/project.git
+
+查看分支：		git branch
+
+创建分支：		git branch name
+
+切换分支：		git checkout name
+
+创建+切换分支：		git checkout -b name //开发新特性一般要创建新的分支
+
+合并某分支到当前分支：	git merge name //git merge --no-ff name //普通合并可以看出合并历史
+
+删除分支：		git branch -d name //-D 强行删除
+
+暂存工作现场区：	git stash  //git stash list 查看保存工作现场的list
+
+恢复工作区		git stash pop
+
+抓取远程最新提交	git pull
+
+本地创建和远程分支对应的分支 git checkout -b branch-name origin/branch-name，本地和远程分支的名称最好一致
+
+建立本地分支和远程分支的关联 git branch --set-upstream branch-name origin/branch-name
+
+查看所有标签		git tag
+
+给当前branch打标签	git tag name //默认为HEAD, 也可以在其后指定commit id//-a "info"//-s PGP 签名
+
+推送本地标签到远端	git push origin tagname	//一次性推送 git push origin --tags
+
+删除远端标签分两步	git tag -d v0.9 本地删 git push origin :refs/tags/v0.9 推送到远端
+
+
+
+
+ 
